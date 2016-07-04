@@ -38,7 +38,7 @@ func (h *Heap) IsEmpty() bool {
 }
 
 func (h *Heap) getIndex(el Sortable) int {
-	if h.IsEmpty() {
+	if len(h.data) == 0 {
 		return -1
 	}
 
@@ -123,7 +123,11 @@ func (h *Heap) Insert(el Sortable) {
 }
 
 func (h *Heap) Remove(data Sortable) {
-	if h.IsEmpty() {
+	h.lock.Lock()
+	defer h.lock.Unlock()
+
+	//empty
+	if len(h.data) == 0 {
 		return
 	}
 	index := h.getIndex(data)
