@@ -31,6 +31,12 @@ func NewHeap() *Heap {
 	return h
 }
 
+func (h *Heap) Len() int {
+	h.lock.Lock()
+	defer h.lock.Unlock()
+	return len(h.data)
+}
+
 func (h *Heap) IsEmpty() bool {
 	h.lock.Lock()
 	defer h.lock.Unlock()
@@ -152,7 +158,6 @@ func (h *Heap) Extract() (el Sortable) {
 
 		h.siftDown(0, len(h.data)-1)
 		return
-	} else {
-		return nil
 	}
+	return
 }

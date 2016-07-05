@@ -28,7 +28,7 @@ func (q *Queue) isEmpty() bool {
 	return q.len == 0
 }
 
-func (q *Queue) shift() (el interface{}) {
+func (q *Queue) Shift() (el interface{}) {
 	q.lock.Lock()
 	defer q.lock.Unlock()
 	el, q.data = q.data[0], q.data[1:]
