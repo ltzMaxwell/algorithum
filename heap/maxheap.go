@@ -131,8 +131,28 @@ func (h *Heap) Remove(data Sortable) {
 		return
 	}
 	index := h.getIndex(data)
-	h.data[index] = h.data[len(h.data)-1]
-	h.data = h.data[:len(h.data)-1]
-	//remove last element
-	h.siftDown(index, len(h.data)-1)
+	if index != -1 {
+		h.data[index] = h.data[len(h.data)-1]
+		h.data = h.data[:len(h.data)-1]
+		//remove last element
+		h.siftDown(index, len(h.data)-1)
+	}
+}
+
+func (h *Heap) Extract() (el Sortable) {
+	if len(h.data) > 0 {
+		el = h.data[0]
+		if len(h.data) == 1 {
+			h.data = nil
+			return
+		}
+
+		h.data[0] = h.data[len(h.data)-1]
+		h.data = h.data[:len(h.data)-1]
+
+		h.siftDown(0, len(h.data)-1)
+		return
+	} else {
+		return nil
+	}
 }

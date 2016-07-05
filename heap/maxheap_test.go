@@ -17,10 +17,24 @@ func TestHeap(t *testing.T) {
 	}
 	fmt.Println(h)
 
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+
 	//insert 85
 	add := Int(85)
 	h.Insert(add)
 	fmt.Println(h)
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
+	fmt.Println("extract result :", h.Extract())
 
 	//remove 90
 	h.Remove(arr[4])
