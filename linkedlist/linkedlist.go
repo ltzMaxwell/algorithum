@@ -155,6 +155,12 @@ func (l *List) Remove(index int) (cursor int) {
 	return index
 }
 
+func (l *List) Each(f func(node *Node)) {
+	for node := l.Head; node != nil; node = node.Next {
+		f(node)
+	}
+}
+
 //Get ...
 func (l *List) Get(index int) (el *Node) {
 	if l.len == 0 {

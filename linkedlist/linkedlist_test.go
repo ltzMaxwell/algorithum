@@ -54,4 +54,9 @@ func TestLinkedList(t *testing.T) {
 
 	fmt.Println("head is ", l.Head)
 	fmt.Println("tail is ", l.Tail)
+	fmt.Println("--------------------")
+
+	l.Each(func(node *Node) {
+		fmt.Println(node)
+	})
 }
